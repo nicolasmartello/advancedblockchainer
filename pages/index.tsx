@@ -1,20 +1,24 @@
 import * as React from 'react';
 import type { NextPage } from 'next';
-import Paper from '@mui/material/Paper';
-import Image from '../assets/background.jpg';
-
+import Box from '@mui/material/Box';
+import TransactionContainer from '../src/transaction/Transaction.container';
 const HomeStyles = {
   backgroundImage: `url(/assets/images/background.jpg)`,
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
-  height: '100vh',
 };
 
 const Home: NextPage = () => {
   return (
-    <div style={HomeStyles}>
-      <span>hello world</span>
-    </div>
+    <Box
+      style={HomeStyles}
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      minHeight="100vh"
+    >
+      <TransactionContainer />
+    </Box>
   );
 };
 
