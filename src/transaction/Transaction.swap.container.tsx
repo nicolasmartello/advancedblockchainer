@@ -25,7 +25,7 @@ export default function TransactionSwapContainer() {
             </MenuItem>
           ))}
         </TextField>
-        <ButtonStyles>Swap</ButtonStyles>
+        <ButtonStyles disabled >Swap</ButtonStyles>
       </TransactionSwapWrapper>
       <TransactionDetail>
         <Header6>Transaction details</Header6>

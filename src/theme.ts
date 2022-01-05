@@ -49,6 +49,12 @@ theme = createTheme(theme, {
           '.MuiOutlinedInput-root': {
             borderRadius: 'unset',
           },
+          '.MuiSelect-select': {
+            display: 'flex',
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+            gap: '8px',
+          },
           'input': {
             backgroundColor: 'transparent',
             padding: '8px 16px',
@@ -84,7 +90,7 @@ theme = createTheme(theme, {
     MuiButton: {
       styleOverrides: {
         root: {
-          padding: '18px 32px',
+          padding: '18px 28px',
           fontSize: '20px',
           color: Default.light,
           backgroundColor: Primary.blue,
