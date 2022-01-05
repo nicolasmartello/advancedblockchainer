@@ -1,8 +1,8 @@
-import { Black } from '../../globalStyles/colors';
+import { Secondary } from '../../globalStyles/colors';
 
 export const TabPanelStyles = {
   padding: '0',
-  backgroundColor: Black.ash,
+  backgroundColor: Secondary.ash,
 };
 
 export const PaperStyles = {

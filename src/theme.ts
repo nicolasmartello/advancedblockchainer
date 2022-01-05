@@ -1,26 +1,42 @@
 import { createTheme } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
-import { Black } from '../globalStyles/colors';
+import { Secondary, Primary, Alert, Default } from '../globalStyles/colors';
 
 // Create a theme instance.
 const theme = createTheme({
+  typography: {
+    fontFamily: ['Konnect', 'arial'].join(','),
+  },
   palette: {
     primary: {
-      main: '#556cd6',
+      main: Primary.blue,
     },
     secondary: {
-      main: '#19857b',
+      main: Secondary.ash,
     },
     error: {
-      main: red.A400,
+      main: Alert.red,
     },
   },
   components: {
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          '.MuiTabs-indicator': {
+            backgroundColor: Secondary.blackAsh,
+          }
+        }
+      }
+    },
     MuiTab: {
       styleOverrides: {
-        // TODO: check why is not overriding the color
-        selected: {
-          backgroundColor: Black.ash,
+        root: {
+          backgroundColor: Secondary.ash20,
+          color: Secondary.ash,
+          textTransform: 'inherit',
+          '&.Mui-selected': {
+            backgroundColor: Secondary.blackAsh,
+            color: Default.light,
+          },
         },
       },
     },
