@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import SwapVertIcon from '@mui/icons-material/SwapVert';
 import Button from '@mui/material/Button';
@@ -15,12 +15,14 @@ import {
   DetailFooter,
   DetailRow,
 } from './Transaction.styles';
-import { Secondary } from '../../globalStyles/colors';
 import { Header6 } from '../../globalStyles/headers.styles';
 import blockChains, { BlockChainsType } from '../data/blockchains';
 import { useMainContex } from '../helper/Main.context';
 
+const REGEX = /^[0-9]*\.?[0-9]*$/;
 export default function TransactionSwapContainer() {
+  const [fromAmount, setFromAmount] = useState<string>('0.0');
+  const [toAmount, setToAmount] = useState<string>('0.0');
   const { walletIsConnected } = useMainContex();
   const MenuItems = blockChains.map((option: BlockChainsType, index: number) => (
     <MenuItem key={option.name} value={index}>
@@ -28,6 +30,11 @@ export default function TransactionSwapContainer() {
       <span>{option.name}</span>
     </MenuItem>
   ));
+  const handleAmount = (e: ChangeEvent<HTMLInputElement>, setCallback: React.Dispatch<React.SetStateAction<string>>) => {
+    if(e.target.value.match(REGEX) && parseInt(e.target.value, 10) < 100) {
+      setCallback(e.target.value);
+    }
+  };
 
   return (
     <ResponsiveBlock>
@@ -48,8 +55,9 @@ export default function TransactionSwapContainer() {
           </TextField>
           <TextField
             label="Amount"
-            defaultValue="0.0"
+            value={fromAmount}
             helperText="Max to use all your funds"
+            onChange={(e: ChangeEvent<HTMLInputElement>) => handleAmount(e, setFromAmount)}
             style={{
               flexGrow: '2'
             }}
@@ -76,7 +84,8 @@ export default function TransactionSwapContainer() {
           </TextField>
           <TextField
             label="Amount"
-            defaultValue="0.0"
+            value={toAmount}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => handleAmount(e, setToAmount)}
             helperText="Max to use all your funds"
             style={{
               flexGrow: '2'
