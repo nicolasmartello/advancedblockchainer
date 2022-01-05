@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
@@ -14,7 +14,7 @@ export default function TransactionTabs({
   swapChildren,
   poolChildren,
 }: TransactionTabsProps) {
-  const [value, setValue] = React.useState<TabsOptions>(TabsOptions.swap);
+  const [value, setValue] = useState<TabsOptions>(TabsOptions.swap);
 
   const handleChange = (event: unknown, newValue: TabsOptions) => {
     setValue(newValue);

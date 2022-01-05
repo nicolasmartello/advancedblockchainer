@@ -1,5 +1,6 @@
 export const Secondary = {
   ash: '#B3BCD0',
+  ash40: 'rgba(179, 188, 208, 0.4)',
   ash20: 'rgba(179, 188, 208, 0.2)',
   ash10: 'rgba(179, 188, 208, 0.1)',
   darkAsh: '#525F7B',

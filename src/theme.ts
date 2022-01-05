@@ -46,6 +46,7 @@ theme = createTheme(theme, {
     MuiTextField: {
       styleOverrides: {
         root: {
+          width: 'auto',
           '.MuiOutlinedInput-root': {
             borderRadius: 'unset',
           },
@@ -54,6 +55,7 @@ theme = createTheme(theme, {
             justifyContent: 'flex-start',
             alignItems: 'center',
             gap: '8px',
+            padding: '11px 25px',
           },
           'input': {
             backgroundColor: 'transparent',
@@ -73,6 +75,20 @@ theme = createTheme(theme, {
               borderBottom: 'none',
               borderBottomStyle: 'none',
             },
+          },
+          'p': {
+            marginLeft: '0',
+            fontSize: '14px',
+          },
+          '.MuiInputLabel-root': {
+            position: 'inherit',
+            maxWidth: 'none',
+            transition: 'none',
+            transform: 'none',
+            margin: '0',
+            padding: '0',
+            fontSize: '14px',
+            marginBottom: '8px',
           },
         },
       },
@@ -103,6 +119,13 @@ theme = createTheme(theme, {
           '&:disabled': {
             backgroundColor: Secondary.ash,
             color: Secondary.darkAsh,
+          },
+          '&.secondary' : {
+            backgroundColor: Primary.blue20,
+            color: Primary.blue,
+            '&:hover': {
+              backgroundColor: 'transparent',
+            },
           },
           [theme.breakpoints.down('md')]: {
             padding: '13px 10px',

@@ -6,9 +6,12 @@ export const HeaderContainer = styled('div')(({ theme }) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   padding: '25px 35px',
-  position: 'fixed',
+  position: 'absolute',
+  top: '0',
   width: '100%',
   [theme.breakpoints.down('md')]: {
-    padding: '13px',
+    padding: '13px 0',
+    position: 'unset',
+    marginBottom: '54px',
   },
 }));
