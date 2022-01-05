@@ -1,8 +1,10 @@
 import { createTheme } from '@mui/material/styles';
 import { Secondary, Primary, Alert, Default } from '../globalStyles/colors';
 
+let theme = createTheme();
+
 // Create a theme instance.
-const theme = createTheme({
+theme = createTheme(theme, {
   typography: {
     fontFamily: ['Konnect', 'arial'].join(','),
   },
@@ -41,26 +43,41 @@ const theme = createTheme({
         },
       },
     },
-    MuiInput: {
+    MuiTextField: {
       styleOverrides: {
         root: {
-          backgroundColor: 'transparent',
-          padding: '8px 16px',
-          borderRadius: 'none',
-          border: `1px solid ${Secondary.ash}`,
-          fontSize: '20px',
-          color: Secondary.darkAsh,
-          '&.Mui-disabled': {
-            backgroundColor: Secondary.ash20,
-            color: Secondary.ash,
+          '.MuiOutlinedInput-root': {
+            borderRadius: 'unset',
+          },
+          'input': {
+            backgroundColor: 'transparent',
+            padding: '8px 16px',
+            borderRadius: 'none',
+            border: `1px solid ${Secondary.ash}`,
+            fontSize: '20px',
+            color: Secondary.darkAsh,
+            '&.Mui-disabled': {
+              backgroundColor: Secondary.ash20,
+              color: Secondary.ash,
+              '&::before': {
+                borderBottomStyle: 'none',
+              },
+            },
             '&::before': {
+              borderBottom: 'none',
               borderBottomStyle: 'none',
             },
           },
-          '&::before': {
-            borderBottom: 'none',
-            borderBottomStyle: 'none',
-          },
+        },
+      },
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          gap: '8px',
         },
       },
     },
@@ -80,6 +97,10 @@ const theme = createTheme({
           '&:disabled': {
             backgroundColor: Secondary.ash,
             color: Secondary.darkAsh,
+          },
+          [theme.breakpoints.down('md')]: {
+            padding: '13px 10px',
+            fontSize: '16px',
           },
         },
       },

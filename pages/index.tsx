@@ -1,7 +1,9 @@
 import * as React from 'react';
 import type { NextPage } from 'next';
 import Box from '@mui/material/Box';
-import TransactionContainer from '../src/transaction/Transaction.container';
+import TransactionContainer from '../src/transaction';
+import Header from '../src/header';
+
 const HomeStyles = {
   backgroundImage: `url(/assets/images/background.jpg)`,
   backgroundSize: 'cover',
@@ -10,15 +12,18 @@ const HomeStyles = {
 
 const Home: NextPage = () => {
   return (
-    <Box
-      style={HomeStyles}
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      minHeight="100vh"
-    >
-      <TransactionContainer />
-    </Box>
+    <>
+      <Header />
+      <Box
+        style={HomeStyles}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="100vh"
+      > 
+        <TransactionContainer />
+      </Box>
+    </>
   );
 };
 

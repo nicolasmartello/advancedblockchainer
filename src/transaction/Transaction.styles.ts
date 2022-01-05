@@ -52,3 +52,7 @@ export const TransactionDetail = styled('div')(({ theme }) => ({
     width: 'auto',
   },
 }));
+
+export const FieldsRow = styled('div')(() => ({
+  display: 'flex',
+}));
